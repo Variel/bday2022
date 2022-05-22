@@ -1,0 +1,62 @@
+.invitation-form {
+  text-align: left;
+}
+
+.invitation-form .form-group {
+  margin-bottom: 24px;
+}
+
+.invitation-form label {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 8px 0;
+}
+
+.invitation-form input[type=text] {
+  display: block;
+  background: transparent;
+  border: 1px solid rgb(185, 183, 162);
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 100%;
+  color: rgb(98, 76, 65);
+  font-size: 16px;
+  padding: 12px 16px;
+  margin: 8px 0;
+}
+
+.invitation-form input[type=text]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 4px 0 rgba(109, 85, 0, 0.3);
+}
+
+.invitation-form .text-help {
+  font-size: 12px;
+  color: #777;
+  margin: 8px 0;
+}
+
+button[type=submit],
+.btn-rewrite {
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background: #634646;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 24px;
+}
+
+.form-submitted h3 {
+  font-size: 24px;
+}
+
+.form-submitted p {
+  line-height: 1.4;
+}
+
+.swal2-html-container {
+  word-break: keep-all;
+}

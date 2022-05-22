@@ -1,0 +1,38 @@
+.nav .nav-toggle {
+  margin: 16px auto;
+  padding: 12px 16px;
+  background-color: #634646;
+  border-radius: 8px;
+  color: white;
+}
+
+.nav.visible .nav-toggle {
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 0;
+}
+
+.nav-images { 
+  background-color: #f7eee7;
+}
+
+.nav-images figure {
+  margin: 0;
+  padding: 16px;
+}
+
+.nav-images figcaption {
+  text-align: left;
+  font-size: 12px;
+  text-underline-offset: 2px;
+}
+
+.nav-images img {
+  max-width: 100%;
+}
+
+.nav-close {
+ padding: 16px;
+ text-decoration: underline;
+ text-underline-offset: 2px;
+ font-size: 14px; 
+}
