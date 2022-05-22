@@ -110,3 +110,20 @@ hr {
 img.sample_nametag {
   max-width: 100%;
 }
+
+.btn-link {
+  display: inline;
+  background: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  border: none;
+  padding: 0;
+  font-weight: 500;
+  color: #777;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.unattend {
+  margin-top: 40px;
+}

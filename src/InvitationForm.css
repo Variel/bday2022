@@ -37,6 +37,25 @@
   margin: 8px 0;
 }
 
+.invitation-form input[type=checkbox]~.custom-checkbox-checked {
+  display: none
+}
+.invitation-form input[type=checkbox]:checked~.custom-checkbox-checked {
+  margin-right: 4px;
+  display: inline-block;
+}
+.invitation-form input[type=checkbox]~.custom-checkbox {
+  margin-right: 4px;
+  display: inline-block;
+}
+.invitation-form input[type=checkbox]:checked~.custom-checkbox {
+  display: none
+}
+
+.invitation-form input[type=checkbox] {
+  display: none;
+}
+
 button[type=submit],
 .btn-rewrite {
   margin-top: 16px;
@@ -59,4 +78,5 @@ button[type=submit],
 
 .swal2-html-container {
   word-break: keep-all;
+  font-size: 16px;
 }

@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Nav from "./Nav";
 import InvitationForm from "./InvitationForm";
@@ -73,6 +72,9 @@ function App() {
             010-2923-5278
           </a>
         </li>
+        <li>
+          기타 행사에 대한 문의 사항은 우측 하단의 <button className="btn-link" onClick={() => window.ChannelIO('showMessenger')}>채널톡</button>을 이용해주세요
+        </li>
       </ul>
       <hr />
       <h2>참석자 작성 양식</h2>
@@ -92,6 +94,10 @@ function App() {
         정보를 <strong>꼭</strong> 작성해주세요!
       </p>
       <InvitationForm></InvitationForm>
+      <p className="precautions unattend">
+        ⚠️ 혹시 참석하지 못하게 되었거나 마음이 바뀌셨나요? 😭<br />
+        우측 하단의 채널톡을 통해 참가 취소 문의를 남겨주세요.
+      </p>
     </div>
   );
 }

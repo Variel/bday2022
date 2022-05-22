@@ -10,20 +10,48 @@ function InvitationForm() {
     name: "",
     introduce: "",
     describeYechan: "",
+    agreePhoto: "0",
   });
+
+  const handleInput = useCallback((key, value) => {
+    setFormData((prev) => ({
+      ...prev,
+      [key]: value,
+    }));
+  }, []);
 
   const resetForm = useCallback(() => {
     setFormData({
       name: "",
       introduce: "",
       describeYechan: "",
+      agreePhoto: "0",
     });
     setFormSubmitted(false);
   }, []);
 
   const submitForm = useCallback(
-    (e) => {
+    async (e) => {
       e.preventDefault();
+
+      if (formData.agreePhoto !== "1") {
+        const result = await Swal.fire({
+          title: "추억 남기기에 동참해주세요!",
+          html: "행사 시에 촬영 된 사진은 선별을 거쳐 참석한 분들께 선물해드릴 예정이에요.<br>촬영에 동의 해주시면 더 좋은 사진을 추억으로 남길 수 있어요.",
+          icon: "warning",
+          showCancelButton: true,
+          cancelButtonText: "그냥 제출하기",
+          showConfirmButton: true,
+          confirmButtonText: "사진 촬영 동의하기",
+          reverseButtons: true,
+          allowOutsideClick: false,
+        });
+
+        if (result.isConfirmed) {
+          handleInput("agreePhoto", "1");
+          return;
+        }
+      }
 
       const data = new FormData();
       for (var key in formData) {
@@ -47,15 +75,8 @@ function InvitationForm() {
         icon: "success",
       });
     },
-    [formData]
+    [formData, handleInput]
   );
-
-  const handleInput = useCallback((key, value) => {
-    setFormData((prev) => ({
-      ...prev,
-      [key]: value,
-    }));
-  }, []);
 
   return formSubmitted ? (
     <div className="form-submitted">
@@ -90,10 +111,10 @@ function InvitationForm() {
         </p>
       </div>
       <div className="form-group">
-        <label htmlFor="input-name">한 줄 설명</label>
+        <label htmlFor="input-introduce">한 줄 설명</label>
         <input
           type="text"
-          id="input-name"
+          id="input-introduce"
           maxLength="25"
           placeholder="예) 성수동 풀악셀"
           onInput={(e) => handleInput("introduce", e.target.value)}
@@ -106,10 +127,10 @@ function InvitationForm() {
         </p>
       </div>
       <div className="form-group">
-        <label htmlFor="input-name">예찬을 한마디로?</label>
+        <label htmlFor="input-describe">예찬을 한마디로?</label>
         <input
           type="text"
-          id="input-name"
+          id="input-describe"
           placeholder="예) 그저 빛⭐️빛 개발자"
           onInput={(e) => handleInput("describeYechan", e.target.value)}
           required
@@ -117,6 +138,26 @@ function InvitationForm() {
         <p className="text-help">
           행사 현수막에 들어갈 문구를 모집합니다! 이예찬을 한마디로
           표현해주세요! 아이디어 넘치는 주접 멘트 환영합니다 &gt;_&lt;
+        </p>
+      </div>
+      <div className="form-group">
+        <label htmlFor="input-agree">
+          <input
+            type="checkbox"
+            id="input-agree"
+            checked={formData.agreePhoto === "1"}
+            onChange={(e) =>
+              handleInput("agreePhoto", e.target.checked ? "1" : "0")
+            }
+          />
+          <span className="custom-checkbox">🟩</span>
+          <span className="custom-checkbox-checked">✅</span>
+          사진 및 영상 촬영에 동의합니다
+        </label>
+        <p className="text-help">
+          우리 모두의 추억을 남기기 위해 행사에서 사진과 영상을 촬영할
+          예정이에요. 사전 협의 된 사진(단체사진 등) 이외에는 외부에 공개되지
+          않고 참석한 사람들 끼리 나눌 예정입니다.
         </p>
       </div>
       <div className="form-group text-center">
